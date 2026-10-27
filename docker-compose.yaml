@@ -3,11 +3,11 @@ version: '3.8'
 services:
   db:
     image: postgres:15
-    container_name: cuervos_postgres
+    container_name: ""
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: gocrawspayme2026
-      POSTGRES_DB: payments_management_system
+      POSTGRES_USER: ""
+      POSTGRES_PASSWORD: ""
+      POSTGRES_DB: ""
     ports:
       - "5432:5432"
     volumes:
@@ -15,9 +15,9 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: cuervos_pgadmin
+    container_name: ""
     environment:
-      PGADMIN_DEFAULT_EMAIL: daniel.nanguyasmu6122@gmail.com
+      PGADMIN_DEFAULT_EMAIL: ""
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - "5050:80"
