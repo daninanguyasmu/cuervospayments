@@ -10,4 +10,4 @@ class TutorBase(SQLModel):
 
 class Tutor(TutorBase, table=True):
     __tablename__ = "tutors"
-    id: int | None = Field(default=None, primary_key=True)
+    id: int | None = Field(default=None, primary_key=True)  

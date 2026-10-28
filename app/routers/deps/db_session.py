@@ -1,6 +1,5 @@
 from typing import Annotated, Generator
 from fastapi import Depends
-from pydantic.v1.main import ANNOTATED_FIELD_UNTOUCHED_TYPES
 from sqlmodel import Session
 from app.config.db import engine
 

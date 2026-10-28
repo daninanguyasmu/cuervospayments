@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from app.models import Tutor
 from app.models.tutor import *
 from app.routers.deps.db_session import SessionDep
 from sqlmodel import *
@@ -18,3 +19,19 @@ def add_tutor(db: SessionDep, tutor: TutorBase) -> Tutor:
     db.commit()
     db.refresh(db_tutor)
     return db_tutor
+
+#Buscar tutor por id
+@tutors_router.get("/{id}")
+def get_tutor_by_id(db: SessionDep, id: int) -> list[Tutor]:
+    statement = (
+        select(Tutor)
+        .where(Tutor.id == id)
+    )
+
+    result = db.exec(statement).all()
+
+    if not result:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=404, detail="Tutor not found")
+
+    return result
