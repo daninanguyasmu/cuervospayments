@@ -14,3 +14,11 @@ async def get_athletes(db: SessionDep) -> list[Athlete]:
         raise HTTPException(status_code=404, detail="No athletes found")
 
     return result
+
+@athletes_router.post("/")
+async def create_athlete(athlete: Athlete, db: SessionDep):
+    db.add(athlete)
+    db.commit()
+    db.refresh(athlete)
+
+    return athlete

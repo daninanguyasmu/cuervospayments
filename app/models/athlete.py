@@ -6,6 +6,7 @@ class AthleteBase(SQLModel):
     last_name: str = Field(max_length=100)
     date_of_birth: date
     monthly_payment: float
+    period: int
 
     tutor_id: int = Field(foreign_key='tutors.id')
 

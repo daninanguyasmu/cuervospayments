@@ -20,6 +20,11 @@ def add_tutor(db: SessionDep, tutor: TutorBase) -> Tutor:
     db.refresh(db_tutor)
     return db_tutor
 
+@tutors_router.get("/search")
+async def search_tutor(name: str, db: SessionDep):
+    statement = select(Tutor).where(or_(Tutor.first_name.icontains(name), Tutor.last_name.icontains(name))).limit(10)
+    result = db.exec(statement).all()
+    return result
 #Buscar tutor por id
 @tutors_router.get("/{id}")
 def get_tutor_by_id(db: SessionDep, id: int) -> list[Tutor]:
