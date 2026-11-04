@@ -32,8 +32,8 @@ A full-stack web application engineered to streamline administrative operations,
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/your-username/cuervos-payments.git](https://github.com/your-username/cuervos-payments.git)
-cd cuervos-payments
+git clone [https://github.com/your-username/cuervospayments.git](https://github.com/daninanguyasmy/cuervospayments.git)
+cd cuervospayments
 ```
 
 ### 2. Backend Setup (FastAPI)
