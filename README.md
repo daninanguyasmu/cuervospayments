@@ -32,7 +32,7 @@ A full-stack web application engineered to streamline administrative operations,
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/daninanguyasmu/cuervospayments.git](https://github.com/daninanguyasmy/cuervospayments.git)
+git clone [https://github.com/daninanguyasmu/cuervospayments.git](https://github.com/daninanguyasmu/cuervospayments.git)
 cd cuervospayments
 ```
 
