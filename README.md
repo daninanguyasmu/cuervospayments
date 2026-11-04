@@ -26,7 +26,7 @@ A full-stack web application engineered to streamline administrative operations,
 * **Real-Time Financial Dashboard:** Calculates active athletes, total monthly collections, and projected revenue vs. actual revenue.
 * **Dynamic Debt Calculation:** Utilizes SQL subqueries (`.notin_`) to cross-reference the `Athlete` and `Payment` tables, automatically identifying members with pending dues for the current operational month.
 * **Safe State Management:** Frontend built with secure progress bar rendering (avoiding zero-division errors) and optimized `useEffect` data fetching.
-* **Modern UI/UX:** Responsive, dark-themed administrative interface tailored for quick operational reads.
+* **Modern UI/UX:** Dark-themed administrative interface tailored for quick operational reads.
 
 ## ⚙️ Local Development Setup
 
@@ -70,6 +70,7 @@ npm run dev
 ## 🔮 Future Roadmap (v2.0)
 * **Historical Debt Engine:** Refactoring the database schema to implement `enrollment_date` and `billing_start_date`, enabling absolute mathematical calculations for accumulated historical debt without requiring retroactive data entry.
 * **Cloud Deployment:** Migration to a serverless architecture using Render (Backend), Supabase (PostgreSQL), and Vercel (Frontend).
+* **Responsive Design:** Create a responsive UI/UX design for administrators and coaches to manage the club on the go. 
 
 ## 👨‍💻 Author
 **Daniel Horacio Nanguyasmú Mejía**  
