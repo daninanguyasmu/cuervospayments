@@ -30,29 +30,41 @@ A full-stack web application engineered to streamline administrative operations,
 
 ## ⚙️ Local Development Setup
 
-This project uses **Docker** to provide a frictionless local development environment. There is no need to manually install Python or PostgreSQL on your machine.
+This project uses a hybrid development architecture: **Docker** is used to easily spin up the PostgreSQL database and pgAdmin isolated containers, while the FastAPI backend and React frontend are run locally for optimal debugging and hot-reloading.
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/your-username/cuervos-payments.git](https://github.com/your-username/cuervos-payments.git)
+git clone https://github.com/daninanguyasmu/cuervospayments.git
 cd cuervos-payments
 ```
 
-### 2. Environment Variables
-*Create a `.env` file in the root directory of the project. (Docker Compose will use this to configure the database and backend):*
-```text
-DATABASE_URL=postgresql://user:password@db:5432/cuervos_db
-```
-*(Note: If your docker-compose maps the database host differently, ensure the URL matches your service name, e.g., `@db` instead of `@localhost`).*
-
-### 3. Spin up the containers
+### 2. Database Setup (Docker)
+*Spin up the PostgreSQL database and pgAdmin containers:*
 ```bash
-docker-compose up -d --build
+docker-compose up -d
 ```
-*The API will be automatically available at `http://127.0.0.1:8000`. Access the interactive Swagger UI at `/docs`.*
+
+### 3. Backend Setup (FastAPI)
+*Create a `.env` file in the root directory of the project:*
+```text
+DATABASE_URL=postgresql://user:password@localhost:5432/example_db
+```
+*(Ensure the credentials match those defined in your `docker-compose.yml` file).*
+
+*Activate the virtual environment and start the API:*
+```bash
+# Activate virtual environment (Windows)
+.venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the server
+uvicorn app.main:app --reload
+```
+*The API will be available at `http://127.0.0.1:8000`. Access the interactive Swagger UI at `/docs`.*
 
 ### 4. Frontend Setup (React/Vite)
-*(If the frontend is not containerized in your docker-compose, run it locally):*
 ```bash
 cd frontend
 npm install
