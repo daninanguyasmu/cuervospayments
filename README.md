@@ -30,39 +30,35 @@ A full-stack web application engineered to streamline administrative operations,
 
 ## ⚙️ Local Development Setup
 
+This project uses **Docker** to provide a frictionless local development environment. There is no need to manually install Python or PostgreSQL on your machine.
+
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/daninanguyasmu/cuervospayments.git](https://github.com/daninanguyasmu/cuervospayments.git)
-cd cuervospayments
+git clone [https://github.com/your-username/cuervos-payments.git](https://github.com/your-username/cuervos-payments.git)
+cd cuervos-payments
 ```
 
-### 2. Backend Setup (FastAPI)
-```bash
-# Activate virtual environment (Windows)
-.venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-*Create a `.env` file in the root directory of the project with your PostgreSQL connection:*
+### 2. Environment Variables
+*Create a `.env` file in the root directory of the project. (Docker Compose will use this to configure the database and backend):*
 ```text
-DATABASE_URL=postgresql://user:password@localhost:5432/cuervos_db
+DATABASE_URL=postgresql://user:password@db:5432/cuervos_db
 ```
+*(Note: If your docker-compose maps the database host differently, ensure the URL matches your service name, e.g., `@db` instead of `@localhost`).*
 
-*Run the server:*
+### 3. Spin up the containers
 ```bash
-uvicorn app.main:app --reload
+docker-compose up -d --build
 ```
-*The API will be available at `http://127.0.0.1:8000`. Access the interactive Swagger UI at `/docs`.*
+*The API will be automatically available at `http://127.0.0.1:8000`. Access the interactive Swagger UI at `/docs`.*
 
-### 3. Frontend Setup (React/Vite)
+### 4. Frontend Setup (React/Vite)
+*(If the frontend is not containerized in your docker-compose, run it locally):*
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-*Ensure the `BASE_URL` in `src/api/config.js` is pointed to your local backend environment (e.g., `http://127.0.0.1:8000`).*
+*Ensure the `BASE_URL` in `src/api/config.js` is pointed to `http://127.0.0.1:8000`.*
 
 ## 🔮 Future Roadmap (v2.0)
 * **Historical Debt Engine:** Refactoring the database schema to implement `enrollment_date` and `billing_start_date`, enabling absolute mathematical calculations for accumulated historical debt without requiring retroactive data entry.
