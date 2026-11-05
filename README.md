@@ -38,9 +38,6 @@ cd cuervospayments
 
 ### 2. Backend Setup (FastAPI)
 ```bash
-cd backend
-python -m venv .venv
-
 # Activate virtual environment (Windows)
 .venv\Scripts\activate
 
@@ -48,7 +45,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-*Create a `.env` file in the backend directory with your PostgreSQL connection:*
+*Create a `.env` file in the root directory of the project with your PostgreSQL connection:*
 ```text
 DATABASE_URL=postgresql://user:password@localhost:5432/cuervos_db
 ```
